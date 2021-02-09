@@ -1,0 +1,163 @@
+*:not(label):not(input):not(p):not(h1) {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+.App {
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: sans-serif;
+  text-align: center;
+  max-width: 960px;
+  margin: 10px auto;
+
+  margin-top: 30px;
+}
+.inputTextArea {
+  width: 100%;
+  min-width: 320px;
+  max-width: 600px;
+}
+.inputItem {
+  margin: 2px 0;
+}
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 960px) {
+  .two-column {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .inputTextArea {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 600px) {
+  .routerLinksContainer {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .attachmentsArea {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+h1 {
+  margin-bottom: 2px;
+  font-size: 1.6rem;
+}
+
+.alertify-notifier .ajs-message.ajs-success {
+  color: white;
+  background-color: darkgreen !important;
+}
+.bg-grey {
+  background: #f3f3f3;
+
+  padding-bottom: 40px;
+
+  padding-right: 10px;
+  padding-left: 10px;
+
+  padding: 20px 10px 40px 20px;
+}
+
+.resultsHeading {
+  background: #f3f3f3;
+  text-align: center;
+  padding: 20px 10px 10px 10px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  text-decoration: underline;
+}
+
+.submit-query-button {
+  margin-top: 20px;
+  padding: 8px 8px;
+  cursor: pointer;
+}
+.linkStyle {
+  text-decoration: underline;
+  color: #0000ee;
+  cursor: pointer;
+  margin-top: 10px;
+  display: block;
+}
+label input,
+label {
+  cursor: pointer;
+}
+.dateContainer {
+}
+.dateLabel {
+  display: inline-block;
+  width: 130px;
+  padding-right: 5px;
+
+  text-align: right;
+}
+
+.dateInputGroup {
+  margin: 5px 0;
+}
+.dateContainer {
+  margin: 20px 0;
+}
+
+.routerLinks li {
+  display: inline-block;
+
+  border: 1px solid black;
+  border-bottom: 0px;
+  padding: 5px;
+  color: white;
+  background-color: lightgray;
+  margin: 0 5px;
+}
+.attachmentsArea {
+  margin-top: 20px;
+}
+.checkIfHasDateRangeArea {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.attachmentOptions div input {
+  display: inline-block;
+  width: 20px;
+
+  text-align: left;
+}
+.attachmentOptions div label {
+  display: inline-block;
+  width: 240px;
+
+  text-align: left;
+}
+
+.routerLinksContainer {
+  border-bottom: 1px solid black;
+}
+.optionsHeader {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 20px 0;
+}
+input[type="checkbox"] {
+  cursor: pointer;
+}

@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import InputArea from "./components/InputArea";
 
-function App() {
+import { RecoilRoot } from "recoil";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <RecoilRoot>
+      <div className="App">
+        <h1>Outlook Search Query Builder</h1>
+        <small>written by: Jason Rowe</small>
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Place a list (seperated by new lines) of terms to be search. Any blank
+          lines, spaces or duplicates will be removed.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+        <InputArea />
+      </div>
+    </RecoilRoot>
   );
 }
-
-export default App;
