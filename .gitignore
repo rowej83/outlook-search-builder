@@ -33,3 +33,9 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
+
+# phpstorm ignore files
+.idea
+
+#ignore build files
+build
