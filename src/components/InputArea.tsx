@@ -50,13 +50,14 @@ export default function InputArea() {
             setSubmitButtonText("Generate Query");
         }, 2000);
     };
-
+// TODO refactor resetquery and showitems in query to utils.js
     function resetQuery() {
         setTextArea("");
         setInputValues([]);
         setQueryString("");
         let tempOptionsObject = cloneDeep(optionsObject);
         tempOptionsObject.hasAttachments = "withOrWithOutAttachment";
+        tempOptionsObject.hasRange=false;
         tempOptionsObject.rangeStart = new Date(
             new Date().setDate(new Date().getDate() - 1)
         );
