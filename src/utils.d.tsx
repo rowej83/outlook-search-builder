@@ -1,3 +1,3 @@
 export declare namespace utils {
-  function makeQuery(): string;
+    function makeQuery(): string;
 }
