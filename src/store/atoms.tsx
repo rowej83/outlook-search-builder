@@ -26,3 +26,8 @@ export const queryStringState = atom({
     key: "queryStringState",
     default: "" as string
 });
+
+export const selectedOptionsAreaState=atom({
+    key:'selectedOptionsAreaState',
+    default:"attachments" as string
+})

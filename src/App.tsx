@@ -1,9 +1,9 @@
 import "./styles.css";
 import InputArea from "./components/InputArea";
-
 import {RecoilRoot} from "recoil";
 
-export default function App() {
+
+ function App() {
     return (
         <RecoilRoot>
             <div className="App">
@@ -19,3 +19,5 @@ export default function App() {
         </RecoilRoot>
     );
 }
+
+export default App;

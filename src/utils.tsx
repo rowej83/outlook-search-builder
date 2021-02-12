@@ -1,3 +1,5 @@
+
+
 interface optionsObjectType {
     hasAttachments: string;
     hasRange: boolean;

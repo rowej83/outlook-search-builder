@@ -5,12 +5,14 @@ import {
     inputValuesState,
     queryStringState
 } from "../store/atoms";
+import {selectedOptionsAreaState} from "../store/atoms";
 import OptionsArea from "./OptionsArea";
 import {cloneDeep} from "lodash";
 import {makeQuery} from "../utils";
 
 export default function InputArea() {
     const textAreaRef = React.useRef<HTMLTextAreaElement | null>(null);
+    const [selectedOptionsArea,setSelectedOptionsArea]=useRecoilState(selectedOptionsAreaState);
     const [optionsObject, setOptionsObject] = useRecoilState(optionsState);
     const [textArea, setTextArea] = React.useState("");
     const [inputValues, setInputValues] = useRecoilState(inputValuesState);
@@ -19,6 +21,7 @@ export default function InputArea() {
     const [submitButtonText, setSubmitButtonText] = React.useState(
         "Generate Query"
     );
+
     const handleOnClick = () => {
         if (textArea.length < 1) {
             if (textAreaRef.current) {
@@ -44,7 +47,9 @@ export default function InputArea() {
         let endingQueryResult: string = makeQuery(filtered, optionsObject);
         setInputValues(filtered);
         setQueryString(endingQueryResult);
-        navigator.clipboard.writeText(endingQueryResult);
+        navigator.clipboard.writeText(endingQueryResult).catch(e=>{
+            console.log('error: ', e);
+        });
 
         setTimeout(() => {
             setSubmitButtonText("Generate Query");
@@ -55,6 +60,7 @@ export default function InputArea() {
         setTextArea("");
         setInputValues([]);
         setQueryString("");
+
         let tempOptionsObject = cloneDeep(optionsObject);
         tempOptionsObject.hasAttachments = "withOrWithOutAttachment";
         tempOptionsObject.hasRange=false;
@@ -63,13 +69,16 @@ export default function InputArea() {
         );
         tempOptionsObject.rangeEnd = new Date();
         setOptionsObject(tempOptionsObject);
+
         if (textAreaRef.current) {
             textAreaRef.current.focus();
         }
+    //    console.log(history);
+        setSelectedOptionsArea('attachments');
     }
 
     function showItemsInQuery() {
-        let buffer = [];
+        let buffer:Array<JSX.Element | string>  = [];
         buffer.push(<p>List of items in Query: ({inputValues.length})</p>);
 
         if (inputValues.length > 0) {
@@ -84,7 +93,7 @@ export default function InputArea() {
     }
 
     function showResultingQuery() {
-        let buffer = [];
+        let buffer:Array<JSX.Element | string>  = [];
         if (inputValues.length === 0) return;
         buffer.push(<p>Query copied to your clipboard:</p>);
         buffer.push(queryString);
