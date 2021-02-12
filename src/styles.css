@@ -16,8 +16,7 @@
 }
 
 .inputTextArea {
-    width: 100%;
-    min-width: 320px;
+
     max-width: 600px;
     padding:10px;
 }
@@ -40,13 +39,18 @@
 
 @media (max-width: 600px) {
     .inputTextArea {
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
+
+        min-width: 90%;
+
     }
 }
 
 @media (min-width: 600px) {
+    .inputTextArea {
+
+        min-width: 420px;
+
+    }
     .routerLinksContainer {
         max-width: 500px;
         margin-left: auto;
