@@ -12,7 +12,7 @@ import {makeQuery} from "../utils";
 
 export default function InputArea() {
     const textAreaRef = React.useRef<HTMLTextAreaElement | null>(null);
-    const [selectedOptionsArea,setSelectedOptionsArea]=useRecoilState(selectedOptionsAreaState);
+    const [selectedOptionsArea, setSelectedOptionsArea] = useRecoilState(selectedOptionsAreaState);
     const [optionsObject, setOptionsObject] = useRecoilState(optionsState);
     const [textArea, setTextArea] = React.useState("");
     const [inputValues, setInputValues] = useRecoilState(inputValuesState);
@@ -47,7 +47,7 @@ export default function InputArea() {
         let endingQueryResult: string = makeQuery(filtered, optionsObject);
         setInputValues(filtered);
         setQueryString(endingQueryResult);
-        navigator.clipboard.writeText(endingQueryResult).catch(e=>{
+        navigator.clipboard.writeText(endingQueryResult).catch(e => {
             console.log('error: ', e);
         });
 
@@ -55,6 +55,7 @@ export default function InputArea() {
             setSubmitButtonText("Generate Query");
         }, 2000);
     };
+
 // TODO refactor resetquery and showitems in query to utils.js
     function resetQuery() {
         setTextArea("");
@@ -63,7 +64,7 @@ export default function InputArea() {
 
         let tempOptionsObject = cloneDeep(optionsObject);
         tempOptionsObject.hasAttachments = "withOrWithOutAttachment";
-        tempOptionsObject.hasRange=false;
+        tempOptionsObject.hasRange = false;
         tempOptionsObject.rangeStart = new Date(
             new Date().setDate(new Date().getDate() - 1)
         );
@@ -73,12 +74,12 @@ export default function InputArea() {
         if (textAreaRef.current) {
             textAreaRef.current.focus();
         }
-    //    console.log(history);
+        //    console.log(history);
         setSelectedOptionsArea('attachments');
     }
 
     function showItemsInQuery() {
-        let buffer:Array<JSX.Element | string>  = [];
+        let buffer: Array<JSX.Element | string> = [];
         buffer.push(<p>List of items in Query: ({inputValues.length})</p>);
 
         if (inputValues.length > 0) {
@@ -93,7 +94,7 @@ export default function InputArea() {
     }
 
     function showResultingQuery() {
-        let buffer:Array<JSX.Element | string>  = [];
+        let buffer: Array<JSX.Element | string> = [];
         if (inputValues.length === 0) return;
         buffer.push(<p>Query copied to your clipboard:</p>);
         buffer.push(queryString);

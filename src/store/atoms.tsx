@@ -10,11 +10,11 @@ export type optionsStateInterface = {
 export const optionsState = atom({
     key: "optionsState",
     default: {
-        hasAttachments: "withOrWithOutAttachment" as string,
-        hasRange: false as boolean,
-        rangeStart: new Date(new Date().setDate(new Date().getDate() - 1)) as Date | null,
-        rangeEnd: new Date() as Date | null
-    }
+        hasAttachments: "withOrWithOutAttachment",
+        hasRange: false,
+        rangeStart: new Date(new Date().setDate(new Date().getDate() - 1)),
+        rangeEnd: new Date()
+    } as optionsStateInterface
 });
 
 export const inputValuesState = atom({
@@ -27,7 +27,7 @@ export const queryStringState = atom({
     default: "" as string
 });
 
-export const selectedOptionsAreaState=atom({
-    key:'selectedOptionsAreaState',
-    default:"attachments" as string
+export const selectedOptionsAreaState = atom({
+    key: 'selectedOptionsAreaState',
+    default: "attachments" as string
 })

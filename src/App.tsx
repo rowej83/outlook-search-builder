@@ -3,7 +3,7 @@ import InputArea from "./components/InputArea";
 import {RecoilRoot} from "recoil";
 
 
- function App() {
+function App() {
     return (
         <RecoilRoot>
             <div className="App">

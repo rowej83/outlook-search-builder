@@ -18,7 +18,7 @@
 .inputTextArea {
 
     max-width: 600px;
-    padding:10px;
+    padding: 10px;
 }
 
 .inputItem {
@@ -51,6 +51,7 @@
         min-width: 420px;
 
     }
+
     .routerLinksContainer {
         max-width: 500px;
         margin-left: auto;
@@ -140,7 +141,7 @@ label {
 
 .routerLinks li {
     display: inline-block;
-position: relative;
+    position: relative;
     border: 1px solid black;
     border-bottom: 0px;
     padding: 5px;
@@ -186,13 +187,14 @@ position: relative;
 input[type="checkbox"] {
     cursor: pointer;
 }
-.optionsArrow{
-position: absolute;
-width:100%;
-left:0;
-right:0;
-color: #636363;
-bottom: -42px;
-font-weight: 500;
-font-size: 37px;
+
+.optionsArrow {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    color: #636363;
+    bottom: -42px;
+    font-weight: 500;
+    font-size: 37px;
 }
