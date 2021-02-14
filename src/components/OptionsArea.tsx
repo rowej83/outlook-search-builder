@@ -10,7 +10,7 @@ type Props = {};
 export default function OptionsArea(props: Props) {
     const [selectedOptionsArea, setSelectedOptionsArea] = useRecoilState(selectedOptionsAreaState);
     const styles = {
- 
+
         attachmentLinkBackGround: {
             "background-color": selectedOptionsArea === "attachments" ? "#252525" : "#636363"
         } as React.CSSProperties,
