@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ReactNode} from "react";
 import {useRecoilState} from "recoil";
 import {
     optionsState,
@@ -78,7 +78,7 @@ export default function InputArea() {
         setSelectedOptionsArea('attachments');
     }
 
-    function showItemsInQuery() {
+    function showItemsInQuery():((Array<JSX.Element | string>)| void) {
         let buffer: Array<JSX.Element | string> = [];
         buffer.push(<p>List of items in Query: ({inputValues.length})</p>);
 
@@ -93,7 +93,7 @@ export default function InputArea() {
         }
     }
 
-    function showResultingQuery() {
+    function showResultingQuery():((Array<JSX.Element | string>)| void)  {
         let buffer: Array<JSX.Element | string> = [];
         if (inputValues.length === 0) return;
         buffer.push(<p>Query copied to your clipboard:</p>);
@@ -101,6 +101,9 @@ export default function InputArea() {
         return buffer;
     }
 
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     return (
         <>
       <textarea
@@ -132,8 +135,8 @@ export default function InputArea() {
                 <>
                     <p className={"resultsHeading"}>Resulting Query Info</p>
                     <div className={"two-column bg-grey "}>
-                        <div>{showItemsInQuery()}</div>
-                        <div>{showResultingQuery()}</div>
+                        <div>{showItemsInQuery() as ReactNode}</div>
+                        <div>{showResultingQuery() as ReactNode}</div>
                     </div>
                 </>
             )}

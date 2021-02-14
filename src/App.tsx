@@ -10,7 +10,7 @@ function App() {
                 <h1>Outlook Search Query Builder</h1>
                 <small>by: Jason Rowe</small>
                 <p>
-                    Place a list (seperated by new lines) of terms to be search. Any blank
+                    Place a list (separated by new lines) of terms to be search. Any blank
                     lines, spaces or duplicates will be removed.
                 </p>
 
