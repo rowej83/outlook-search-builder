@@ -41,31 +41,34 @@ export function dateRangeCheck(inputString: string, optionsObject: optionsObject
 }
 
 export function makeQuery(
-    items: Array<string>,
-    optionsObject: optionsObjectType
+  items: Array<string>,
+  optionsObject: optionsObjectType
 ): string {
-    let returnedString: string = "";
-    if (items.length === 0) {
-        return "empty query";
+  let returnedString: string = "";
+  if (items.length === 0) {
+    return "empty query";
+  }
+  if (items.length === 1) {
+    returnedString = `(${items[0]})`;
+    if (optionsObject.hasAttachments) {
+      return returnedString + ` AND hasattachments:yes`;
+    } else {
+      return returnedString;
     }
-    if (items.length === 1) {
-        returnedString = `(${items[0]})`;
-        returnedString = attachmentsCheck(returnedString, optionsObject);
-        returnedString = dateRangeCheck(returnedString, optionsObject);
-        return returnedString;
-    }
+  }
 
-    for (let i = 0; i < items.length; i++) {
-        if (i === items.length - 1) {
-            //last
-            returnedString += `(${items[i]})`;
-        } else {
-            returnedString += `(${items[i]}) OR `;
-        }
+  for (let i = 0; i < items.length; i++) {
+    if (i === items.length - 1) {
+      //last
+      returnedString += `(${items[i]}))`;
+    } else {
+      returnedString += `((${items[i]}) OR `;
     }
-    returnedString = attachmentsCheck(returnedString, optionsObject);
-    returnedString = dateRangeCheck(returnedString, optionsObject);
-    return returnedString;
+  }
+  if (optionsObject.hasAttachments) {
+    returnedString = `(hasattachments:yes AND ` + returnedString;
+  }
+  return returnedString;
 }
 
 // for date ranged syntax: (received:>=10/1/20 AND received:<=10/5/20)
