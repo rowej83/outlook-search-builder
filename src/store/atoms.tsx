@@ -1,33 +1,28 @@
-import {atom} from "recoil";
+import { atom } from "recoil";
 
-export type optionsStateInterface = {
-    hasAttachments: string;
-    hasRange: boolean;
-    rangeStart: Date | null;
-    rangeEnd: Date | null;
-}
+// type optionsStateInterface = {
+//   hasAttachment: boolean;
+//   hasRange: boolean;
+//   rangeStart: Date;
+//   rangeEnd: Date;
+// };
 
 export const optionsState = atom({
-    key: "optionsState",
-    default: {
-        hasAttachments: "withOrWithOutAttachment",
-        hasRange: false,
-        rangeStart: new Date(new Date().setDate(new Date().getDate() - 1)),
-        rangeEnd: new Date()
-    } as optionsStateInterface
+  key: "optionsState",
+  default: {
+    hasAttachment: false,
+    hasRange: false,
+    rangeStart: new Date(new Date().setDate(new Date().getDate() - 1)),
+    rangeEnd: new Date()
+  }
 });
 
 export const inputValuesState = atom({
-    key: "inputValuesState",
-    default: [] as string[]
+  key: "inputValuesState",
+  default: []
 });
 
 export const queryStringState = atom({
-    key: "queryStringState",
-    default: "" as string
+  key: "queryStringState",
+  default: ""
 });
-
-export const selectedOptionsAreaState = atom({
-    key: 'selectedOptionsAreaState',
-    default: "attachments" as string
-})
