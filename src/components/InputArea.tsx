@@ -41,6 +41,7 @@ export default function InputArea() {
     });
 
     let endingQueryResult: string = makeQuery(filtered, optionsObject);
+    // @ts-ignore
     setInputValues(filtered);
     setQueryString(endingQueryResult);
     navigator.clipboard.writeText(endingQueryResult);
@@ -128,4 +129,3 @@ export default function InputArea() {
     </>
   );
 }
-
