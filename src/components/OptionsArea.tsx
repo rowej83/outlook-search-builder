@@ -45,7 +45,7 @@ export default function OptionsArea(props: Props) {
               Has Attachments only
             </label>
           </div>
-          <div>
+          <div style{{marginTop:"10px"}}>
             <input
               type="checkbox"
               onChange={onChangeEmailValue}
@@ -54,7 +54,7 @@ export default function OptionsArea(props: Props) {
               checked={optionsObject.includeEmail}
             />
             <label htmlFor="includeEmail">
-              Include cray@espoma.com in To/CC/BCC
+Only Emails Sent To Shipping
             </label>
           </div>
         </div>
