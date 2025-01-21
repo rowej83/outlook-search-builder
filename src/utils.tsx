@@ -3,6 +3,7 @@ type optionsObjectType = {
   hasRange: boolean;
   rangeStart: Date;
   rangeEnd: Date;
+  includeEmail: boolean;
 };
 
 export function makeQuery(
@@ -17,12 +18,17 @@ export function makeQuery(
     console.log("single item");
 
     console.log(optionsObject.hasAttachment);
-    if (optionsObject.hasAttachment) {
-      returnedString = `((${items[0]})`;
-      return returnedString + ` AND hasattachments:yes)`;
-    } else {
-      return `(${items[0]})`;
+    returnedString = `(${items[0]})`;
+    
+    if (optionsObject.includeEmail) {
+      returnedString = `(${returnedString} AND (to:cray@espoma.com OR cc:cray@espoma.com OR bcc:cray@espoma.com))`;
     }
+    
+    if (optionsObject.hasAttachment) {
+      returnedString = `(${returnedString} AND hasattachments:yes)`;
+    }
+    
+    return returnedString;
   }
   // not a single item so loop it
   returnedString = `(`;
@@ -34,9 +40,15 @@ export function makeQuery(
       returnedString += `(${items[i]}) OR `;
     }
   }
-  if (optionsObject.hasAttachment) {
-    returnedString = `(hasattachments:yes AND ` + returnedString + `)`;
+  
+  if (optionsObject.includeEmail) {
+    returnedString = `(${returnedString} AND (to:cray@espoma.com OR cc:cray@espoma.com OR bcc:cray@espoma.com))`;
   }
+  
+  if (optionsObject.hasAttachment) {
+    returnedString = `(${returnedString} AND hasattachments:yes)`;
+  }
+  
   return returnedString;
 }
 
