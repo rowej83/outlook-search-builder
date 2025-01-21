@@ -18,6 +18,15 @@ export default function OptionsArea(props: Props) {
     console.log(tempOptionsObject);
     setOptionsObject(tempOptionsObject);
   }
+
+  function onChangeEmailValue(
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void {
+    let tempOptionsObject = cloneDeep(optionsObject);
+    tempOptionsObject.includeEmail = !optionsObject.includeEmail;
+    setOptionsObject(tempOptionsObject);
+  }
+
   return (
     <>
       <h2 className={"optionsHeader"}>Options </h2>
@@ -34,6 +43,18 @@ export default function OptionsArea(props: Props) {
             />
             <label htmlFor="withOrWithOutAttachment">
               Has Attachments only
+            </label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              onChange={onChangeEmailValue}
+              name="email"
+              id="includeEmail"
+              checked={optionsObject.includeEmail}
+            />
+            <label htmlFor="includeEmail">
+              Include cray@espoma.com in To/CC/BCC
             </label>
           </div>
         </div>
